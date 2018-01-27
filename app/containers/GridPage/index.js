@@ -23,7 +23,6 @@ const FixedWrapper = styled.div`
   color: #444;
 `;
 
-
 const Box = styled.div`
   background-color: #444;
   color: #fff;
@@ -33,8 +32,33 @@ const Box = styled.div`
   text-align: center;
 `;
 
-export default class GridPage extends Component { // eslint-disable-line react/prefer-stateless-function
 
+const LineBasedBoxWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-gap: 20px;
+  color: #444;
+`;
+
+
+const LineBasedBox = styled(Box)`
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+`;
+
+const LineBasedCenterBox = styled(Box)`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
+`;
+
+export default class GridPage extends Component { // eslint-disable-line react/prefer-stateless-function
   // Since state and props are static,
   // there's no need to re-render this component
   shouldComponentUpdate() {
@@ -70,6 +94,13 @@ export default class GridPage extends Component { // eslint-disable-line react/p
           <Box>E</Box>
           <Box>F</Box>
         </FixedWrapper>
+        <H1>
+          {'Line based grid'}
+        </H1>
+        <LineBasedBoxWrapper>
+          <LineBasedBox>A</LineBasedBox>
+          <LineBasedCenterBox>B</LineBasedCenterBox>
+        </LineBasedBoxWrapper>
       </div>
     );
   }
