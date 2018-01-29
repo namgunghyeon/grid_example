@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.grids',
     defaultMessage: 'Grids',
   },
+  animations: {
+    id: 'boilerplate.components.Header.animations',
+    defaultMessage: 'Animations',
+  },
 });
