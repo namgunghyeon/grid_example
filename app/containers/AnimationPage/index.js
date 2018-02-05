@@ -10,10 +10,11 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import { Motion, spring } from 'react-motion';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectForm from './selectors';
+import makeSelectAnimation from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
@@ -23,6 +24,9 @@ export class AimationPage extends React.Component { // eslint-disable-line react
     return (
       <div>
         <FormattedMessage {...messages.header} />
+        <Motion defaultStyle={{ opacity: 0 }} style={{ opacity: spring(1) }}>
+          { (style) => <div style={style}>Can you see me?</div> }
+        </Motion>
       </div>
     );
   }
@@ -33,7 +37,7 @@ AimationPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  form: makeSelectForm(),
+  animation: makeSelectAnimation(),
 });
 
 function mapDispatchToProps(dispatch) {

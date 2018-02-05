@@ -11,7 +11,7 @@ const selectAnimationDomain = (state) => state.get('animation');
 
 
 /**
- * Default selector used by Form
+ * Default selector used by Animation
  */
 
 const makeSelectAnimation = () => createSelector(
